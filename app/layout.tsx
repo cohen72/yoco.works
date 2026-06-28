@@ -1,42 +1,37 @@
 import type { Metadata } from "next";
-import { Inter, DM_Serif_Display } from "next/font/google";
+import { Inter, JetBrains_Mono, Caveat } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const dmSerif = DM_Serif_Display({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-dm-serif",
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
+const caveat = Caveat({ subsets: ["latin"], variable: "--font-hand", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Yehuda Cohen — AI Assistant Setup",
+  title: "yoco.works — Quiet websites & thoughtful automations",
   description:
-    "Your own personal AI assistant. Set up by a guy who got way too deep into this and now does it for other people.",
+    "A one-person studio building small, well-made websites and the quiet automations that let them earn their keep. One person, plain conversations, flat fees.",
   openGraph: {
-    title: "Yehuda Cohen — AI Assistant Setup",
+    title: "yoco.works — Quiet websites & thoughtful automations",
     description:
-      "Your own personal AI assistant. One session. Same day. Your life is slightly better forever.",
-    url: "https://yehudacohen.ai",
-    siteName: "yehudacohen.ai",
+      "A one-person studio building small, well-made websites and the quiet automations that let them earn their keep.",
+    url: "https://yoco.works",
+    siteName: "yoco.works",
     type: "website",
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const themeScript = `(function(){try{var t=localStorage.getItem('yoco-theme');if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${dmSerif.variable}`}>
-      <body className="font-sans antialiased bg-bg text-[#f5f5f5]">
-        {children}
-      </body>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${mono.variable} ${caveat.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <noscript>
+          <style>{`.rv{opacity:1 !important;transform:none !important}`}</style>
+        </noscript>
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
