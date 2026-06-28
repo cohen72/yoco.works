@@ -215,3 +215,27 @@ footer{border-top:1px solid var(--line);padding:clamp(44px,5vw,70px) 0 40px}
   .form-row{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none;transition:none}}
+
+/* ---------- motion / cursor fx ---------- */
+.hero-fx{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hero-glow{position:absolute;left:50%;top:42%;width:480px;height:480px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle, color-mix(in srgb,var(--accent) 26%, transparent), transparent 66%);filter:blur(38px);opacity:.5;will-change:left,top}
+.hero-shape{position:absolute;color:var(--accent);opacity:.16;will-change:transform}
+.hero-shape svg{width:100%;height:100%;display:block}
+.hero-shape.hs1{width:120px;height:120px;top:20%;right:13%}
+.hero-shape.hs2{width:54px;height:54px;top:66%;right:30%;opacity:.22}
+.hero-shape.hs3{width:78px;height:78px;top:60%;left:9%;opacity:.13}
+@media(max-width:760px){.hero-shape{display:none}}
+
+.card{isolation:isolate}
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s ease;z-index:2;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%), color-mix(in srgb,var(--accent) 18%, transparent), transparent 56%)}
+.card:hover::after{opacity:.5}
+.proj{position:relative;isolation:isolate}
+.proj::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s ease;z-index:3;background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%), color-mix(in srgb,var(--accent) 15%, transparent), transparent 56%)}
+.proj:hover::after{opacity:.6}
+
+@media (prefers-reduced-motion: no-preference){
+  .hero .headline{opacity:0;transform:translateY(26px);animation:heroUp .85s cubic-bezier(.2,.7,.2,1) .05s forwards}
+  .hero .hero-sub{opacity:0;transform:translateY(22px);animation:heroUp .85s cubic-bezier(.2,.7,.2,1) .2s forwards}
+  .hero .hero-cta{opacity:0;transform:translateY(22px);animation:heroUp .85s cubic-bezier(.2,.7,.2,1) .35s forwards}
+}
+@keyframes heroUp{to{opacity:1;transform:none}}
