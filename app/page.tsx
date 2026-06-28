@@ -140,10 +140,9 @@ export default function Home() {
       <main>
         {/* HERO */}
         <section className="hero">
-          <div className="hero-bg" aria-hidden="true" />
           <div className="wrap">
-            <h1 className="hero-mark"><span className="yoco">yoco</span>{/* eslint-disable-next-line @next/next/no-img-element */}<img className="cap" src={CAP} alt="" /><span className="works">works</span></h1>
-            <p className="hero-sub">We build well-made websites — and the quiet workflows behind them.</p>
+            <h1 className="headline">Quiet websites <span className="grad">that work</span>.</h1>
+            <p className="hero-sub">We build well-made sites and the workflows behind them.</p>
             <div className="hero-cta">
               <a className="btn btn-primary" href="#contact">Start a project <span className="arr">→</span></a>
               <a className="textlink" href="#work">View work →</a>
