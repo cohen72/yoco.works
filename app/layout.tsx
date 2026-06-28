@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Caveat } from "next/font/google";
+import { Inter, JetBrains_Mono, Caveat, Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
 const caveat = Caveat({ subsets: ["latin"], variable: "--font-hand", display: "swap" });
+const bevn = Be_Vietnam_Pro({ subsets: ["latin"], weight: ["600", "700"], variable: "--font-bevn", display: "swap" });
 
 export const metadata: Metadata = {
   title: "yoco.works — Quiet websites & thoughtful automations",
@@ -24,7 +25,7 @@ const themeScript = `(function(){try{var t=localStorage.getItem('yoco-theme');if
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${mono.variable} ${caveat.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${mono.variable} ${caveat.variable} ${bevn.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <noscript>

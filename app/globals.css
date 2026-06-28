@@ -3,24 +3,24 @@
 @tailwind utilities;
 
 :root, [data-theme="dark"]{
-  --bg:#0B0912; --bg-2:#0E0B19; --card:#15111F; --card-2:#1B1530;
-  --ink:#F3F0FA; --ink-soft:#B6B1CC; --ink-faint:#7C7796;
-  --line:#241E39; --line-2:#332B4E;
-  --accent:#8B5CF6; --accent-2:#A855F7; --accent-soft:rgba(139,92,246,.14);
+  --bg:#0C0A0E; --bg-2:#100C12; --card:#17121B; --card-2:#1F1826;
+  --ink:#F5F0F4; --ink-soft:#BBB2BC; --ink-faint:#827A86;
+  --line:#272030; --line-2:#382E42;
+  --accent:#F25884; --accent-2:#FF7DA6; --accent-soft:rgba(242,88,132,.15);
   --on-accent:#FFFFFF;
-  --glow:rgba(124,92,255,.20);
+  --glow:rgba(242,88,132,.20);
   --shadow:0 30px 60px -30px rgba(0,0,0,.7);
   --thumb-stripe:rgba(255,255,255,.04);
 }
 [data-theme="light"]{
-  --bg:#FAF9FE; --bg-2:#F2EFFB; --card:#FFFFFF; --card-2:#F7F5FD;
-  --ink:#16121F; --ink-soft:#544F66; --ink-faint:#867F9B;
-  --line:#EAE5F6; --line-2:#DCD4EE;
-  --accent:#7C3AED; --accent-2:#9333EA; --accent-soft:rgba(124,58,237,.10);
+  --bg:#FCF8FB; --bg-2:#F8F0F5; --card:#FFFFFF; --card-2:#FCF5F9;
+  --ink:#1A1019; --ink-soft:#5A5160; --ink-faint:#8B8090;
+  --line:#F0E6EE; --line-2:#E6D6E2;
+  --accent:#E23A6B; --accent-2:#F25884; --accent-soft:rgba(226,58,107,.10);
   --on-accent:#FFFFFF;
-  --glow:rgba(124,58,237,.12);
-  --shadow:0 30px 60px -34px rgba(80,55,140,.30);
-  --thumb-stripe:rgba(20,12,40,.04);
+  --glow:rgba(226,58,107,.13);
+  --shadow:0 30px 60px -34px rgba(150,40,90,.20);
+  --thumb-stripe:rgba(40,12,28,.04);
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -47,8 +47,10 @@ h1,h2,h3,h4{font-weight:700;line-height:1.08;letter-spacing:-.025em}
 header{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
 header.scrolled{border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
-.brand{font-weight:700;font-size:1.2rem;letter-spacing:-.03em;color:var(--ink)}
-.brand .pt{color:var(--accent)}
+.brand{display:inline-flex;align-items:center;gap:.14em;line-height:1;color:var(--ink);font-size:1.3rem}
+.brand .yoco{font-family:'Times New Roman',Times,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+.brand .works{font-family:var(--font-bevn),'Be Vietnam Pro',system-ui,sans-serif;font-weight:700;letter-spacing:-.02em}
+.brand .cap{height:.8em;width:auto;display:block;flex:none}
 .navlinks{display:flex;gap:30px}
 .navlinks a{font-size:.9rem;color:var(--ink-soft);position:relative;padding:4px 0;transition:color .2s}
 .navlinks a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .25s}
